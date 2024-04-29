@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Tim Nicholas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-        <link rel="stylesheet" href="styles.css">
-        <base target="_blank">
+        <link rel="stylesheet" href="style/styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <title>Tim Nicholas</title>
     </head>
     <body>
         <div class="container page">
@@ -21,197 +21,271 @@
                             <h1 class="mb-0">Tim Nicholas</h1>
                             <div class="fs-3">Aspiring Software Developer</div>
                         </div>
+                        <div>
+                            <p>
+                                <time class="small">Last update: 4/29/2024</time>
+                            </p>
+                        </div>
                     </div>
                     <div class="col-4 col-md-3 col-lg-2 offset-lg-1 d-none d-md-block align-md-self-center text-center">
                         <img src="assets/Professional Mugshot.jpg" class="rounded-circle img-fluid" alt="Personal photo">
                     </div>
                     <div class="col-print-6 col-12 col-md-5 offset-lg-1 col-lg-4">
-                        <h2>Basic Information:</h2>
                         <ul class="list-group list-group-flush">
-                            <li>Address: 9209 Bainbridge Dr, Camby, IN, 46113</li>
-                            <li>Phone Number: (317) 993-8411</li>
-                            <li>Email: tsnicholas@bsu.edu</li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <p>Residence</p>
+                                <div>
+                                    <a href="https://maps.app.goo.gl/ioNHGSxwFzVvdnty6">Camby, IN</a>
+                                    <i class="bi bi-house-fill fact-icon"></i>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <p>LinkedIn</p>
+                                <div>
+                                    <a href="https://www.linkedin.com/in/tsnicholas/">tsnicholas</a>
+                                    <i class="bi bi-linkedin fact-icon"></i>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <p>GitHub</p>
+                                <div>
+                                    <a href="https://github.com/tsnicholas">tsnicholas</a>
+                                    <i class="bi bi-github fact-icon"></i>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <p>Email</p>
+                                <div>
+                                    <a href="mailto:tsnicholas@bsu.edu">tsnicholas@bsu.edu</a>
+                                    <i class="fa fa-envelope fact-icon"></i>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <p>Phone</p>
+                                <div>
+                                    <a href="tel:+13179938411">(317) 993-8411</a>
+                                    <i class="bi bi-telephone-fill fact-icon"></i>
+                                </div>
+                            </li>
                         </ul>
-                        <h2>Links:</h2>
-                        <ul class="list-group list-group-flush">
-                            <li><a href="https://www.linkedin.com/in/tsnicholas/">LinkedIn</a></li>
-                            <li><a href="https://github.com/tsnicholas">GitHub</a></li>
-                        </ul>
                     </div>
                 </div>
-            </div>
-
-            <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
-                <h3 class="h2 screen mb-4">Skills</h3>
-                <div class="row align-items-center">
-                    <div>
-                        <small><strong>Languages:</strong></small>
-                        <small>JavaScript/Typescript,</small>
-                        <small>Python,</small>
-                        <small>Java,</small>
-                        <small>C,</small>
-                        <small>HTML/CSS,</small>
-                        <small>MySQL,</small>
-                        <small>NoSQL</small>
-                        <br>
-                        <small><strong>Software/Tools:</strong></small>
-                        <small>VS Code,</small>
-                        <small>Vim,</small>
-                        <small>Git,</small>
-                        <small>GitHub,</small>
-                        <small>MongoDB,</small>
-                        <small>Intellj IDEA,</small>
-                        <small>Code::Blocks</small>
-                        <br>
-                        <small><strong>Principles:</strong></small>
-                        <small>Object-Oriented Programming,</small>
-                        <small>Test Driven Development,</small>
-                        <small>Version Control,</small>
-                        <small>Database Design</small>
-                    </div>
+                <div class="row mt-5 pt-5 pb-print-0 mb-print-1">
+                    Aspiring professional software developer with a deep passion for programming and computers. 
+                    Eager to utilize my problem-solving skills to contribute to innovative software. 
+                    I'm an introverted but dependable person who is excited to expand on my strengths and knowledge to tackle new challenges. 
+                    If you're interested, please feel free to contact me if you wish to learn more about me.
                 </div>
             </div>
-
-            <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
-                Aspiring professional software developer. 
-                After learning to code in high school, I excelled with my accomplishments using my critical thinking and problem solving skills. 
-                Using those same skills today, I have gained high levels of proficiency in Java, C, Python, JavaScript, and more.
-                I am determined to become a professional software developer when I leave college, and to do the best job I can possibly offer. 
-                If you're interested to learn more about me and my compatibility for your position, then please contact me to find out more.
-            </div>
-
-            <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
-                <h2 class="mb-4">Academic Projects</h2>
-                <div class="row d-block d-md-flex{{#unless @last}} mb-5{{/unless}}">
-                    <div class="col-md-2 pt-1">
-                        Spring 2021
-                    </div>
-                    <div class="col-md-10">
-                        <h3 class="fs-4 fw-normal"><a href="https://github.com/tsnicholas/PokedexApplication">Pokedex Application</a></h3>
-                        <div>
-                            To demonstrate my understanding of Robert Martin's Clean Code, I collaborated in a team of 4 to develop a pokedex application.
-                            By parsing data from PokeAPI, the application retrieves basic information on a pokemon and displays it on a user interface made in JavaFX.
-                        </div>
-                        <p>
-                            <span class="badge text-body border border-1">Java</span>
-                            <span class="badge text-body border border-1">JavaFX</span>
-                            <span class="badge text-body border border-1">Object-Oriented Programming</span>
-                            <span class="badge text-body border border-1">Test Driven Development</span>
-                        </p>
-                    </div>
-                    <div class="col-md-2 pt-1">
-                        Spring 2022
-                    </div>
-                    <div class="col-md-10">
-                        <h3 class="fs-4 fw-normal"><a href="https://github.com/tsnicholas/SimpleCompiler">Simple C Compiler</a></h3>
-                        <div>
-                            This is a C program developed to determine if C files could be compiled based on their use of parantheses.
-                            It was developed on a remote Linux machine using Vim but pushed unto GitHub for the sake of archiving.
-                        </div>
-                        <p>
-                            <span class="badge text-body border border-1">C</span>
-                            <span class="badge text-body border border-1">Vim</span>
-                            <span class="badge text-body border border-1">Problem Solving</span>
-                        </p>
-                    </div>
-                    <div class="col-md-10">
-                        <h3 class="fs-4 fw-normal"><a href="https://github.com/tsnicholas/Falcon-Airlines-Database">Falcon Airlines Database</a></h3>
-                        <div>
-                            This python program randomly generates a fake airline database in MySQL. 
-                            This was made to demonstrate my understanding of database programming and how to program in MySQL indirectly using Python. 
-                            Included is a read me file on how to run the program yourself. the executable file, the source code, and the configuration file.
-                        </div>
-                        <p>
-                            <span class="badge text-body border border-1">Python</span>
-                            <span class="badge text-body border border-1">MySQL</span>
-                            <span class="badge text-body border border-1">Database Design</span>
-                        </p>
-                    </div>
-                    <div class="col-md-10">
-                        <h3 class="fs-4 fw-normal"><a href="https://github.com/tsnicholas/TimerApp">Timer App</a></h3>
-                        <div>
-                            This is a simple timer app I made for Mobile App Development. 
-                            It allows you to create and edit timers as well as customizing your own timer sets. 
-                            I developed this project with React Native and it requires you to run it with a phone emulator. 
-                            I would recommend using Expo to run this application.
-                        </div>
-                        <p>
-                            <span class="badge text-body border border-1">Typescript</span>
-                            <span class="badge text-body border border-1">React Native</span>
-                            <span class="badge text-body border border-1">React.js</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
+            
             <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
                 <h2 class="mb-4">Education</h2>
                 <div>Ball State University in Muncie, Indiana [2021 - 2024]</div>
             </div>
 
-            <h2 class="mb-4">Work Experience Timeline</h2>
-            <div class="mb-4">
-                <div class="col-md-2 pt-1">
-                    Summer 2023
+            <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
+                <h2 class="mb-4">Academic Projects</h2>
+                <div class="d-flex justify-content-between align-items-start">
+                    <p class="col-md-3 p-1">
+                        March 2024 - April 2024
+                    </p>
+                    <div class="col-md-10">
+                        <h3 class="fs-4 fw-normal p-1">
+                            <a href="https://github.com/tsnicholas/BusShuttle">
+                                Bus Shuttle Application
+                            </a>
+                        </h3>
+                        <p class="p-1">
+                            <span class="badge text-body border border-1">.NET Framework</span>
+                            <span class="badge text-body border border-1">ASP.NET</span>
+                            <span class="badge text-body border border-1">Web Development</span>
+                            <span class="badge text-body border border-1">C#</span>
+                            <span class="badge text-body border border-1">Bootstrap (Framework)</span>
+                        </p>
+                        <p class="p-1">
+                            This project aims to re-engineer an existing project written with php to use the .Net Framework instead.
+                        </p>
+                    </div>
                 </div>
-                <h3 class="fs-4 fw-normal">Warehouse Associate (Temp)</h3>
-                <h4 class="fs-5 fw-normal">StaffMax USA</h4>
+                <div class="d-flex justify-content-between align-items-start">
+                    <p class="col-md-3 p-1">
+                        October 2023 - April 2024
+                    </p>
+                    <div class="col-md-10">
+                        <h3 class="fs-4 fw-normal p-1">
+                            <a href="https://github.com/hergin/PersonalizedLearningPlanWebApp">
+                                Personalized Learning Plan Website
+                            </a>
+                        </h3>
+                        <p class="p-1">
+                            <span class="badge text-body border border-1">Web Development</span>
+                            <span class="badge text-body border border-1">REST API</span>
+                            <span class="badge text-body border border-1">Typescript</span>
+                            <span class="badge text-body border border-1">PostgreSQL</span>
+                            <span class="badge text-body border border-1">React.js</span>
+                        </p>
+                        <p class="p-1">
+                            This is my Capstone project (Senior Year Project) in which I worked together in a team of 5 to 
+                            develop an application for Stanford CME.
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-start">
+                    <p class="col-md-3 p-1">
+                        February 2024
+                    </p>
+                    <div class="col-md-10">
+                        <h3 class="fs-4 fw-normal p-1">
+                            <a href="https://github.com/tsnicholas/StackDemo">
+                                Stack Demo
+                            </a>
+                        </h3>
+                        <p class="p-1">
+                            <span class="badge text-body border border-1">Web Development</span>
+                            <span class="badge text-body border border-1">Bootstrap (framework)</span>
+                            <span class="badge text-body border border-1">JavaScript</span>
+                            <span class="badge text-body border border-1">CSS</span>
+                            <span class="badge text-body border border-1">HTML</span>
+                        </p>
+                        <p class="p-1">
+                            This project is a web application designed to simulate the Stack data structure 
+                            with a user interface developed with Bootstrap.
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-start">
+                    <p class="col-md-3 p-1">
+                        October 2023
+                    </p>
+                    <div class="col-md-10 p-1">
+                        <h3 class="fs-4 fw-normal p-1"><a href="https://github.com/tsnicholas/TimerApp">Timer App</a></h3>
+                        <p class="p-1">
+                            <span class="badge text-body border border-1">Mobile Application Development</span>
+                            <span class="badge text-body border border-1">Typescript</span>
+                            <span class="badge text-body border border-1">React Native</span>
+                            <span class="badge text-body border border-1">React.js</span>
+                        </p>
+                        <p class="p-1">
+                            This is a simple timer app I made for Mobile App Development. 
+                            It allows you to create and edit timers as well as customizing your own timer sets. 
+                            I developed this project with React Native and it requires you to run it with a phone emulator. 
+                            I would recommend using Expo to run this application.
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="col-md-3 p-1">
+                        March 2022 - May 2022
+                    </div>
+                    <div class="col-md-10 p-1">
+                        <h3 class="fs-4 fw-normal p-1"><a href="https://github.com/tsnicholas/PokedexApplication">Pokedex Application</a></h3>
+                        <p class="p-1">
+                            <span class="badge text-body border border-1">Java</span>
+                            <span class="badge text-body border border-1">JavaFX</span>
+                            <span class="badge text-body border border-1">Version Control</span>
+                            <span class="badge text-body border border-1">Unit Testing</span>
+                            <span class="badge text-body border border-1">Gradle</span>
+                        </p>
+                        <p class="p-1">
+                            To demonstrate my understanding of Robert Martin's Clean Code, I collaborated in a team of 4 to develop a pokedex application.
+                            By parsing data from PokeAPI, the application retrieves basic information on a pokemon and displays it on a user interface made in JavaFX.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
+                <h2 class="mb-4">Work Experience Timeline</h2>
                 <div>
-                    During the summer of 2023, I worked as a temp for a NTN bearings warehouse in Indianapolis.
-                    The assignment's duty was to verify and pack various heavy car parts for them to be shipped.<br>
-                    Accomplishments:
-                    <ul>
-                        <li>Cooperated with a unit to get packages ready to be shipped ahead of time.</li>
-                        <li>Detected packing errors with technology ensuring quality shipping.</li>
-                    </ul>
-
-                </div>
-                <br>
-                <div class="col-md-2 pt-1">
-                    Summer 2022
-                </div>
-                <h3 class="fs-4 fw-normal">Warehouse Associate (Temp)</h3>
-                <h4 class="fs-5 fw-normal">StaffMax USA</h4>
-                <div>
-                    As a temp for StaffMax USA now, I worked in a Pepboys warehouse which had a problem with lack of employees.
-                    The position's task was to sort and store various car parts as according to the database throughout the warehouse.<br>
-                    Accomplishments: 
-                    <ul>
-                        <li>Collaborated in a team with determination and leadership to make workflow more efficient.</li>
-                        <li>Instructed new employees to achieve quality effort with concise communication.</li>
-                    </ul>
-                </div>
-                <br>
-                <div class="col-md-2 pt-1">
-                    Summer 2021
-                </div>
-                <h3 class="fs-4 fw-normal">Warehouse Associate (Temp)</h3>
-                <h4 class="fs-5 fw-normal">Elwood Staffing Services, Inc.</h4>
-                <div>
-                    During the summer of 2021, I worked at a Loves warehouse as a temp for Elwood Staffing.
-                    The profession was to work as a team to retread big truck tires in a team by using various machinary<br>
-                    Accomplishments:
-                    <ul>
-                        <li>Partnered with others in a well-organized team environment to operate machines</li>
-                        <li>Contributed a strong work ethic to meet strict quotas.</li>
-                    </ul>
-                </div>
-                </div>
-                <br>
-                <div class="col-md-2 pt-1">
-                    Summer 2020
-                </div>
-                <h3 class="fs-4 fw-normal">Warehouse Associate (Temp)</h3>
-                <h4 class="fs-5 fw-normal">Elwood Staffing Services, Inc.</h4>
-                <div>
-                    My first job was working as a temp for Elwood Staffing at a warehouse in Mooresville known as Ingram Micro.
-                    The job was to fulfill orders by picking and packing phone products to get them ready for shipping.<br>
-                    Accomplishments:
-                    <ul>
-                        <li>Adapted to an unfamiliar environment with ease to ensure a strong work ethic.</li>
-                        <li>Volunteered to work many hours of overtime throughout the pandemic to help a disturbed workflow.</li>
-                    </ul> 
-                </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="col-md-3 p-1">
+                            Summer 2023
+                        </div>
+                        <div class="col-md-10 p-1">
+                            <div>
+                                <h3 class="fs-4 fw-normal">StaffMax USA</h3>
+                                <p class="fs-5 fst-italic">Warehouse Associate (temp)</p>
+                            </div>
+                            <div>
+                                <p>
+                                    During the summer of 2023, I worked as a temp for a NTN bearings warehouse in Indianapolis.
+                                    The assignment's duty was to verify and pack various heavy car parts for them to be shipped.
+                                </p>
+                                <p>Accomplishments:</p>
+                                <ul>
+                                    <li>Cooperated with a unit to get packages ready to be shipped ahead of time.</li>
+                                    <li>Detected packing errors with technology ensuring quality shipping.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="col-md-3 p-1">
+                            Summer 2022
+                        </div>
+                        <div class="col-md-10 p-1">
+                            <div class="p-1">
+                                <h3 class="fs-4 fw-normal">StaffMax USA</h3>
+                                <p class="fs-5 fst-italic">Warehouse Associate (temp)</p>
+                            </div>
+                            <div class="p-1">
+                                <p>
+                                    As a temp for StaffMax USA now, I worked in a Pepboys warehouse which had a problem with lack of employees.
+                                    The position's task was to sort and store various car parts as according to the 
+                                    database throughout the warehouse.
+                                </p>
+                                <p>Accomplishments:</p>
+                                <ul>
+                                    <li>Collaborated in a team with determination and leadership to make workflow more efficient.</li>
+                                    <li>Instructed new employees to achieve quality effort with concise communication.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="col-md-3 p-1">
+                            Summer 2021
+                        </div>
+                        <div class="col-md-10 p-1">
+                            <div class="p-1">
+                                <h3 class="fs-4 fw-normal">Elwood Staffing Services, Inc.</h3>
+                                <p class="fs-5 fst-italic">Warehouse Associate (temp)</p>
+                            </div>
+                            <div class="p-1">
+                                <p>
+                                    During the summer of 2021, I worked at a Loves warehouse as a temp for Elwood Staffing.
+                                    The profession was to work as a team to retread big truck tires in a team by using various machinery.
+                                </p>
+                                <p>Accomplishments:</p>
+                                <ul>
+                                    <li>Partnered with others in a well-organized team environment to operate machines</li>
+                                    <li>Contributed a strong work ethic to meet strict quotas.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="col-md-3 pt-1">
+                            Summer 2020
+                        </div>
+                        <div class="col-md-10">
+                            <div class="p-1">
+                                <h3 class="fs-4 fw-normal">Elwood Staffing Services, Inc.</h3>
+                                <p class="fs-5 fst-italic">Warehouse Associate (temp)</p>
+                            </div>
+                            <div class="p-1">
+                                <p>
+                                    My first job was working as a temp for Elwood Staffing at a warehouse in Mooresville known as Ingram Micro.
+                                    The job was to fulfill orders by picking and packing phone products to get them ready for shipping.
+                                </p>
+                                <p>Accomplishments:</p>
+                                <ul>
+                                    <li>Adapted to an unfamiliar environment with ease to ensure a strong work ethic.</li>
+                                    <li>Volunteered to work many hours of overtime throughout the pandemic to help a disturbed workflow.</li>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                </ul>
             </div>
         </div>
     </body>
