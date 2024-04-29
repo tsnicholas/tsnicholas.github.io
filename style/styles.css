@@ -42,16 +42,6 @@ h1, h2, h3, h4 {
     }
 }
 
-.far, .fab, .fas, .fa {
-    text-decoration: none !important;
-    margin-right: 5px;
-}
-
-.badge {
-    font-weight: normal;
-    letter-spacing: 0.05rem;
-}
-
 @media print {
     .col-print-1 {
         flex: 0 0 8.333333%;
@@ -74,6 +64,11 @@ h1, h2, h3, h4 {
     .mb-print-1 {
         margin-bottom: 1rem !important;
     }
+}
+
+.badge {
+    font-weight: normal;
+    letter-spacing: 0.05rem;
 }
 
 .fact-icon {
