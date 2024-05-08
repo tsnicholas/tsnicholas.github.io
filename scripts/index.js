@@ -1,7 +1,7 @@
 const DATA_CONTAINER_CLASS_STRING = "d-flex justify-content-between align-items-start";
 
 /**
- * 
+ * Fetches the json file in the given path.
  * @param {string} resource
  * @returns {Promise<object>}
  */
@@ -10,6 +10,10 @@ function retrieveJsonData(resource) {
     return Promise.resolve(response);
 }
 
+/**
+ * Initializes the display of the facts in the HTML Dom.
+ * @param {object} factData 
+ */
 function displayFactData(factData) {
     const container = document.getElementById("factContainer");
     for(const fact of factData) {
@@ -23,7 +27,7 @@ function displayFactData(factData) {
 }
 
 /**
- *
+ * Initializes an element with a classlist.
  * @param {string} element
  * @param {string} classList
  * @returns {HTMLElement}
@@ -35,7 +39,7 @@ function createElementWithStyle(element, classList) {
 }
 
 /**
- *
+ * Initializes an element with a classlist and inner text.
  * @param {string} element
  * @param {string} classList
  * @param {string} text
@@ -48,6 +52,7 @@ function createElementWithStyleAndText(element, classList, text) {
 }
 
 /**
+ * Appends all the child elements in the array into the parent element.
  * @param {HTMLDivElement} parent
  * @param {HTMLElement[]} children
  */
@@ -57,6 +62,10 @@ function injectWithChildren(parent, children) {
     }
 }
 
+/**
+ * Initializes the display of the project data in the HTML Dom.
+ * @param {object} projectData
+ */
 function displayProjectData(projectData) {
     const container = document.getElementById("projectContainer");
     for (const project of projectData) {
@@ -74,7 +83,7 @@ function displayProjectData(projectData) {
 }
 
 /**
- *
+ * Creates a heading with the given link.
  * @param {string} name
  * @param {string} link
  * @returns {HTMLElement}
@@ -89,7 +98,7 @@ function createHeadingWithLink(name, link) {
 }
 
 /**
- *
+ * Creates a row of badges from the list of skills.
  * @param {string[]} skills
  * @returns {HTMLElement}
  */
@@ -102,6 +111,10 @@ function parseSkills(skills) {
     return container;
 }
 
+/**
+ * Initializes the work display within the HTML Dom.
+ * @param {object} workData
+ */
 function displayWorkExperience(workData) {
     const container = document.getElementById("experienceContainer");
     for (const workExperience of workData) {
@@ -120,7 +133,7 @@ function displayWorkExperience(workData) {
 }
 
 /**
- *
+ * Creates a heading with a subtitle under it.
  * @param {string} company
  * @param {string} position
  * @returns {HTMLElement}
@@ -133,7 +146,7 @@ function createHeadingWithSubtitle(company, position) {
 }
 
 /**
- *
+ * Creates the body section for work experience.
  * @param {object} workExperience
  * @returns {HTMLElement}
  */
@@ -147,7 +160,7 @@ function createBody(workExperience) {
 }
 
 /**
- *
+ * Creates an unordered list from the list of accomplishments.
  * @param {string[]} accomplishments
  * @return {HTMLElement}
  */
@@ -169,95 +182,3 @@ displayProjectData(projectData);
 
 const workData = await retrieveJsonData("./scripts/data/work.json");
 displayWorkExperience(workData);
-
-/* <div>
-        <div class="d-flex justify-content-between align-items-start">
-            <div class="col-md-3 p-1">
-                Summer 2023
-            </div>
-            <div class="col-md-10 p-1">
-                <div>
-                    <h3 class="fs-4 fw-normal">StaffMax USA</h3>
-                    <p class="fs-5 fst-italic">Warehouse Associate (temp)</p>
-                </div>
-                <div>
-                    <p>
-                        During the summer of 2023, I worked as a temp for a NTN bearings warehouse in Indianapolis.
-                        The assignment's duty was to verify and pack various heavy car parts for them to be shipped.
-                    </p>
-                    <p>Accomplishments:</p>
-                    <ul>
-                        <li>Cooperated with a unit to get packages ready to be shipped ahead of time.</li>
-                        <li>Detected packing errors with technology ensuring quality shipping.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-between align-items-start">
-            <div class="col-md-3 p-1">
-                Summer 2022
-            </div>
-            <div class="col-md-10 p-1">
-                <div class="p-1">
-                    <h3 class="fs-4 fw-normal">StaffMax USA</h3>
-                    <p class="fs-5 fst-italic">Warehouse Associate (temp)</p>
-                </div>
-                <div class="p-1">
-                    <p>
-                        As a temp for StaffMax USA now, I worked in a Pepboys warehouse which had a problem with lack of employees.
-                        The position's task was to sort and store various car parts as according to the
-                        database throughout the warehouse.
-                    </p>
-                    <p>Accomplishments:</p>
-                    <ul>
-                        <li>Collaborated in a team with determination and leadership to make workflow more efficient.</li>
-                        <li>Instructed new employees to achieve quality effort with concise communication.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-between align-items-start">
-            <div class="col-md-3 p-1">
-                Summer 2021
-            </div>
-            <div class="col-md-10 p-1">
-                <div class="p-1">
-                    <h3 class="fs-4 fw-normal">Elwood Staffing Services, Inc.</h3>
-                    <p class="fs-5 fst-italic">Warehouse Associate (temp)</p>
-                </div>
-                <div class="p-1">
-                    <p>
-                        During the summer of 2021, I worked at a Loves warehouse as a temp for Elwood Staffing.
-                        The profession was to work as a team to retread big truck tires in a team by using various machinery.
-                    </p>
-                    <p>Accomplishments:</p>
-                    <ul>
-                        <li>Partnered with others in a well-organized team environment to operate machines</li>
-                        <li>Contributed a strong work ethic to meet strict quotas.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-between align-items-start">
-            <div class="col-md-3 pt-1">
-                Summer 2020
-            </div>
-            <div class="col-md-10">
-                <div class="p-1">
-                    <h3 class="fs-4 fw-normal">Elwood Staffing Services, Inc.</h3>
-                    <p class="fs-5 fst-italic">Warehouse Associate (temp)</p>
-                </div>
-                <div class="p-1">
-                    <p>
-                        My first job was working as a temp for Elwood Staffing at a warehouse in Mooresville known as Ingram Micro.
-                        The job was to fulfill orders by picking and packing phone products to get them ready for shipping.
-                    </p>
-                    <p>Accomplishments:</p>
-                    <ul>
-                        <li>Adapted to an unfamiliar environment with ease to ensure a strong work ethic.</li>
-                        <li>Volunteered to work many hours of overtime throughout the pandemic to help a disturbed workflow.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>*/
