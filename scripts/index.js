@@ -1,23 +1,11 @@
-const DATA_CONTAINER_CLASS_STRING = "d-flex justify-content-between align-items-start";
+import metadata from "./data/metadata.json";
 
-/**
- * Fetches the json file in the given path.
- * @param {string} resource
- * @returns {Promise<object>}
- */
-function retrieveJsonData(resource) {
-    const response = fetch(resource).then(response => response.json());
-    return Promise.resolve(response);
-}
+const DATA_CONTAINER_CLASSES = "d-flex justify-content-between align-items-start";
 
-/**
- * Initializes the display of the facts in the HTML Dom.
- * @param {object} factData
- */
-function displayFactData(factData) {
+function injectFactData() {
     const container = document.getElementById("factContainer");
-    for(const fact of factData) {
-        const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASS_STRING);
+    for(const fact of metadata.facts) {
+        const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
         const newHeading = createElementWithStyleAndText("p", undefined, fact.name);
         const linkContainer = document.createElement("div");
         linkContainer.innerHTML = `${fact.link} ${fact.icon}`;
@@ -62,14 +50,21 @@ function injectWithChildren(parent, children) {
     }
 }
 
-/**
- * Initializes the display of the project data in the HTML Dom.
- * @param {object} projectData
- */
-function displayProjectData(projectData) {
+function injectEducationData() {
+    const container = document.getElementById("educationContainer");
+    for (const experience of metadata.education) {
+        const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
+        const firstLine = document.createElement("div");
+        firstLine.textContent = `${experience.school} in ${experience.location} [${experience.timeline}]`;
+        newContainer.appendChild(firstLine);
+        container.appendChild(newContainer);
+    }
+}
+
+function injectProjectData() {
     const container = document.getElementById("projectContainer");
-    for (const project of projectData) {
-        const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASS_STRING);
+    for (const project of metadata.projects) {
+        const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
         newContainer.appendChild(createElementWithStyleAndText("div", "col-md-3 p-1", project.date));
         const mainContainer = createElementWithStyle("div", "col-md-10");
         injectWithChildren(mainContainer, [
@@ -111,14 +106,10 @@ function parseSkills(skills) {
     return container;
 }
 
-/**
- * Initializes the work display within the HTML Dom.
- * @param {object} workData
- */
-function displayWorkExperience(workData) {
+function injectWorkExperience() {
     const container = document.getElementById("experienceContainer");
-    for (const workExperience of workData) {
-        const newDataContainer = createElementWithStyle("div", DATA_CONTAINER_CLASS_STRING);
+    for (const workExperience of metadata.experience) {
+        const newDataContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
         container.appendChild(newDataContainer);
         const bodyWrapper = createElementWithStyle("div", "col-md-10");
         injectWithChildren(newDataContainer, [
@@ -174,11 +165,13 @@ function createUnorderedList(accomplishments) {
     return accomplishmentList;
 }
 
-const factData = await retrieveJsonData("./scripts/data/facts.json");
-displayFactData(factData);
+let nameHeader = document.getElementById("full-name");
+nameHeader.innerText = metadata.name;
 
-const projectData = await retrieveJsonData("./scripts/data/projects.json");
-displayProjectData(projectData);
+let subtitle = document.getElementById("subtitle");
+subtitle.innerText = metadata.title;
 
-const workData = await retrieveJsonData("./scripts/data/work.json");
-displayWorkExperience(workData);
+injectFactData();
+injectEducationData();
+injectProjectData();
+injectWorkExperience();

@@ -14,18 +14,19 @@
         <title>Tim Nicholas</title>
     </head>
     <body>
+        <noscript>Please enable Javascript.</noscript>
         <div class="container page">
             <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
                 <div class="row">
                     <div class="col-print-6 col-12 col-md-4 d-flex justify-content-between flex-column">
                         <div>
-                            <h1 class="mb-0">Tim Nicholas</h1>
-                            <div class="fs-3">Aspiring Software Developer</div>
+                            <h1 id="full-name" class="mb-0"></h1>
+                            <div id="subtitle" class="fs-3"></div>
                             <div>
                                 <p>
                                     <time class="small">Last update: 4/29/2024</time>
                                 </p>
-                                <span class="screen"><a href="{{ pdfFileName }}"><i class="far fa-file-pdf"></i>Download PDF version</a></span>
+                                <span class="screen"><a href="" id="pdf-link"><i class="far fa-file-pdf"></i> Download PDF version</a></span>
                             </div>
                         </div>
                     </div>
@@ -39,14 +40,14 @@
                 <div class="row mt-5 pt-5 pb-print-0 mb-print-1">
                     Aspiring professional software developer with a deep passion for programming and computers.
                     Eager to utilize my problem-solving skills to contribute to innovative software.
-                    I'm an introverted but dependable person who is excited to expand on my strengths and knowledge to tackle new challenges. 
+                    I'm an introverted but dependable person who is excited to expand on my strengths and knowledge to tackle new challenges.
                     If you're interested, please feel free to contact me if you wish to learn more about me.
                 </div>
             </div>
 
             <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
                 <h2 class="mb-4">Education</h2>
-                <div>Ball State University in Muncie, Indiana [2021 - 2024]</div>
+                <div id="educationContainer" class="vstack"></div>
             </div>
 
             <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
@@ -58,6 +59,6 @@
                 <div id="experienceContainer"></div>
             </div>
         </div>
-        <script type="module" src="scripts/index.js"></script>
+        <script src="dist/script.js" type="text/javascript"></script>
     </body>
 </html>
