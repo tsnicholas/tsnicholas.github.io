@@ -2,15 +2,75 @@ import metadata from "./data/metadata.json";
 
 const DATA_CONTAINER_CLASSES = "d-flex justify-content-between align-items-start";
 
-function injectFactData() {
-    const container = document.getElementById("factContainer");
-    for(const fact of metadata.facts) {
-        const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
-        const newHeading = createElementWithStyleAndText("p", undefined, fact.name);
-        const linkContainer = document.createElement("div");
-        linkContainer.innerHTML = `${fact.link} ${fact.icon}`;
-        injectWithChildren(newContainer, [newHeading, linkContainer]);
-        container.appendChild(newContainer);
+const renderStrategies = {
+    /**
+     * Strategy for rendering facts.
+     * @param {object[]} data,
+     * @param {HTMLDivElement} container
+     */
+    fact: function (data, container) {
+        data.forEach(fact => {
+            const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
+            const newHeading = createElementWithStyleAndText("p", undefined, fact.name);
+            const linkContainer = document.createElement("div");
+            linkContainer.innerHTML = `${fact.link} ${fact.icon}`;
+            injectWithChildren(newContainer, [newHeading, linkContainer]);
+            container.appendChild(newContainer);
+        });
+    },
+    /**
+     * Strategy for rendering education data.
+     * @param {object[]} data
+     * @param {HTMLDivElement} container
+     */
+    education: function (data, container) {
+        data.forEach(education => {
+            const firstElement = document.createElement("div");
+            firstElement.textContent = `${education.school} in ${education.location} [${education.timeline}]`;
+            container.appendChild(firstElement);
+            const secondElement = document.createElement("div");
+            secondElement.textContent = education.degree;
+            container.appendChild(secondElement);
+        });
+    },
+    /**
+     * Strategy for rendering project data.
+     * @param {object[]} data
+     * @param {HTMLDivElement} container
+     */
+    project: function (data, container) {
+        data.forEach(project => {
+            const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
+            newContainer.appendChild(createElementWithStyleAndText("div", "col-md-3 p-1", project.date));
+            const mainContainer = createElementWithStyle("div", "col-md-10");
+            injectWithChildren(mainContainer, [
+                createHeadingWithLink(project.name, project.link),
+                parseSkills(project.skills),
+                createElementWithStyleAndText("p", "p-1", project.description)
+            ]);
+            newContainer.appendChild(mainContainer);
+            container.appendChild(newContainer);
+        });
+    },
+    /**
+     * Strategy for rendering experience data.
+     * @param {object[]} data
+     * @param {HTMLDivElement} container
+     */
+    experience: function (data, container) {
+        data.forEach(experience => {
+            const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
+            container.appendChild(newContainer);
+            const bodyWrapper = createElementWithStyle("div", "col-md-10");
+            injectWithChildren(newContainer, [
+                createElementWithStyleAndText("p", "col-md-3 p-1", experience.date),
+                bodyWrapper
+            ]);
+            injectWithChildren(bodyWrapper, [
+                createHeadingWithSubtitle(experience.company, experience.position),
+                createDescription(experience)
+            ]);
+        })
     }
 }
 
@@ -50,33 +110,6 @@ function injectWithChildren(parent, children) {
     }
 }
 
-function injectEducationData() {
-    const container = document.getElementById("educationContainer");
-    for (const experience of metadata.education) {
-        const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
-        const firstLine = document.createElement("div");
-        firstLine.textContent = `${experience.school} in ${experience.location} [${experience.timeline}]`;
-        newContainer.appendChild(firstLine);
-        container.appendChild(newContainer);
-    }
-}
-
-function injectProjectData() {
-    const container = document.getElementById("projectContainer");
-    for (const project of metadata.projects) {
-        const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
-        newContainer.appendChild(createElementWithStyleAndText("div", "col-md-3 p-1", project.date));
-        const mainContainer = createElementWithStyle("div", "col-md-10");
-        injectWithChildren(mainContainer, [
-            createHeadingWithLink(project.name, project.link),
-            parseSkills(project.skills),
-            createElementWithStyleAndText("p", "p-1", project.description)
-        ]);
-        newContainer.appendChild(mainContainer);
-        container.appendChild(newContainer);
-    }
-}
-
 /**
  * Creates a heading with the given link.
  * @param {string} name
@@ -106,23 +139,6 @@ function parseSkills(skills) {
     return container;
 }
 
-function injectWorkExperience() {
-    const container = document.getElementById("experienceContainer");
-    for (const workExperience of metadata.experience) {
-        const newDataContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
-        container.appendChild(newDataContainer);
-        const bodyWrapper = createElementWithStyle("div", "col-md-10");
-        injectWithChildren(newDataContainer, [
-            createElementWithStyleAndText("p", "col-md-3 p-1", workExperience.date),
-            bodyWrapper
-        ]);
-        injectWithChildren(bodyWrapper, [
-            createHeadingWithSubtitle(workExperience.company, workExperience.position),
-            createBody(workExperience)
-        ]);
-    }
-}
-
 /**
  * Creates a heading with a subtitle under it.
  * @param {string} company
@@ -137,41 +153,61 @@ function createHeadingWithSubtitle(company, position) {
 }
 
 /**
- * Creates the body section for work experience.
- * @param {object} workExperience
- * @returns {HTMLElement}
+ * Creates a description with an unordered list.
+ * @param {object} experience
+ * @returns {HTMLDivElement}
  */
-function createBody(workExperience) {
+function createDescription(experience) {
     const container = document.createElement("div");
     injectWithChildren(container, [
-        createElementWithStyleAndText("p", "", workExperience.description),
-        createUnorderedList(workExperience.accomplishments)
+        createElementWithStyleAndText("p", "", experience.description),
+        createUnorderedList(experience.accomplishments)
     ]);
     return container;
 }
 
 /**
- * Creates an unordered list from the list of accomplishments.
- * @param {string[]} accomplishments
+ * Creates an unordered list from the provided list of strings.
+ * @param {string[]} data
  * @return {HTMLElement}
  */
-function createUnorderedList(accomplishments) {
-    const accomplishmentList = document.createElement("ul");
-    for (const accomplishment of accomplishments) {
+function createUnorderedList(data) {
+    const unorderedList = document.createElement("ul");
+    for (const element of data) {
         const listItem = document.createElement("li");
-        listItem.textContent = accomplishment;
-        accomplishmentList.appendChild(listItem);
+        listItem.textContent = element;
+        unorderedList.appendChild(listItem);
     }
-    return accomplishmentList;
+    return unorderedList;
 }
 
-let nameHeader = document.getElementById("full-name");
-nameHeader.innerText = metadata.name;
+/**
+ * Selects and executes a strategy for rendering the given data.
+ * @param {object[]} data
+ * @param {string} type
+ */
+function render(data, type) {
+    console.log(JSON.stringify(data));
+    let container = document.getElementById(`${type}-container`);
+    console.log(container);
+    if (renderStrategies[type]) {
+        renderStrategies[type](data, container);
+    } else {
+        console.error(`Strategy type ${type} not found.`);
+    }
+}
 
-let subtitle = document.getElementById("subtitle");
-subtitle.innerText = metadata.title;
+function main() {
+    let nameHeader = document.getElementById("full-name");
+    nameHeader.innerText = metadata.name;
 
-injectFactData();
-injectEducationData();
-injectProjectData();
-injectWorkExperience();
+    let subtitle = document.getElementById("subtitle");
+    subtitle.innerText = metadata.title;
+
+    render(metadata.facts, "fact");
+    render(metadata.education, "education");
+    render(metadata.projects, "project");
+    render(metadata.experience, "experience");
+}
+
+main();
