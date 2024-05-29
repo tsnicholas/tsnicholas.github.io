@@ -12,7 +12,7 @@ function retrieveJsonData(resource) {
 
 /**
  * Initializes the display of the facts in the HTML Dom.
- * @param {object} factData 
+ * @param {object} factData
  */
 function displayFactData(factData) {
     const container = document.getElementById("factContainer");
