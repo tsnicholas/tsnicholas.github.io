@@ -1,0 +1,42 @@
+[
+    {
+        "company": "StaffMax USA",
+        "position": "Warehouse Associate (Temp)",
+        "date": "Summer 2023",
+        "description": "During the summer of 2023, I worked as a temp for a NTN bearings warehouse in Indianapolis. The assignment's duty was to verify and pack various heavy car parts for them to be shipped.",
+        "accomplishments": [
+            "Cooperated with a unit to get packages ready to be shipped ahead of time.",
+            "Detected packing errors with technology ensuring quality shipping."
+        ]
+    },
+    {
+        "company": "StaffMax USA",
+        "position": "Warehouse Associate (Temp)",
+        "date": "Summer 2022",
+        "description": "As a temp for StaffMax USA now, I worked in a Pepboys warehouse which had a problem with lack of employees. The position's task was to sort and store various car parts as according to the database throughout the warehouse.",
+        "accomplishments": [
+            "Collaborated in a team with determination and leadership to make workflow more efficient.",
+            "Instructed new employees to achieve quality effort with concise communication."
+        ]
+    },
+    {
+        "company": "Elwood Staffing Services, Inc.",
+        "position": "Warehouse Associate (Temp)",
+        "date": "Summer 2021",
+        "description": "During the summer of 2021, I worked at a Loves warehouse as a temp for Elwood Staffing. The profession was to work as a team to retread big truck tires in a team by using various machinery.",
+        "accomplishments": [
+            "Partnered with others in a well-organized team environment to operate machines",
+            "Contributed a strong work ethic to meet strict quotas"
+        ]
+    },
+    {
+        "company": "Elwood Staffing Services, Inc.",
+        "position": "Warehouse Associate (Temp)",
+        "date": "Summer 2020",
+        "description": "My first job was working as a temp for Elwood Staffing at a warehouse in Mooresville known as Ingram Micro. The job was to fulfill orders by picking and packing phone products to get them ready for shipping.",
+        "accomplishments": [
+            "Adapted to an unfamiliar environment with ease to ensure a strong work ethic.",
+            "Volunteered to work many hours of overtime throughout the pandemic to help a disturbed workflow."
+        ]
+    }
+]

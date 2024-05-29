@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Residence",
+        "link": "<a href=\"https://maps.app.goo.gl/ioNHGSxwFzVvdnty6\">Camby, IN</a>",
+        "icon": "<i class=\"bi bi-house-fill fact-icon\"></i>"
+    },
+    {
+        "name": "LinkedIn",
+        "link": "<a href=\"https://www.linkedin.com/in/tsnicholas\">tsnicholas</a>",
+        "icon": "<i class=\"bi bi-linkedin fact-icon\"></i>"
+    },
+    {
+        "name": "GitHub",
+        "link": "<a href=\"https://github.com/tsnicholas\">tsnicholas</a>",
+        "icon": "<i class=\"bi bi-github fact-icon\"></i>"
+    },
+    {
+        "name": "Email",
+        "link": "<a href=\"mailto:tsnicholas@outlook.com\">tsnicholas@outlook.com</a>",
+        "icon": "<i class=\"fa fa-envelope fact-icon\"></i>"
+    },
+    {
+        "name": "Phone",
+        "link": "<a href=\"tel:+13179938411\">+1 (317) 993-8411</a>",
+        "icon": "<i class=\"bi bi-telephone-fill fact-icon\"></i>"
+    }
+]
