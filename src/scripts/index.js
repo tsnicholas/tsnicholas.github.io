@@ -42,12 +42,16 @@ const renderStrategies = {
      */
     project: function (data, container) {
         data.forEach(project => {
-            const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
+            const newContainer = createElementWithStyle("div", `${DATA_CONTAINER_CLASSES} pb-2`);
             newContainer.appendChild(createElementWithStyleAndText("div", "col-md-3 p-1", project.date));
             const mainContainer = createElementWithStyle("div", "col-md-10");
-            injectWithChildren(mainContainer, [
+            const headingContainer = createElementWithStyle("div", "pb-2");
+            injectWithChildren(headingContainer, [
                 createHeadingWithLink(project.name, project.link),
                 parseSkills(project.skills),
+            ]);
+            injectWithChildren(mainContainer, [
+                headingContainer,
                 createElementWithStyleAndText("p", "p-1", project.description)
             ]);
             newContainer.appendChild(mainContainer);
@@ -63,7 +67,7 @@ const renderStrategies = {
         data.forEach(experience => {
             const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
             container.appendChild(newContainer);
-            const bodyWrapper = createElementWithStyle("div", "col-md-10 experience-body");
+            const bodyWrapper = createElementWithStyle("div", "col-md-10 pb-3");
             injectWithChildren(newContainer, [
                 createElementWithStyleAndText("p", "col-md-3 p-1", experience.date),
                 bodyWrapper
@@ -148,7 +152,7 @@ function parseSkills(skills) {
  * @returns {HTMLElement}
  */
 function createHeadingWithSubtitle(position, company) {
-    const container = document.createElement("div");
+    const container = createElementWithStyle("div", "pb-3");
     container.appendChild(createElementWithStyleAndText("h3", "fs-4 fw-normal", position));
     container.appendChild(createCompanyDisplay(company));
     return container;
