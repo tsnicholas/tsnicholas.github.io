@@ -53,7 +53,7 @@
         },
         {
             "name": "Personalized Learning Plan Website",
-            "description": "This is my Capstone project (Senior Year Project) in which I worked together in a team of 5 to develop an application for Stanford CME.",
+            "description": "This is my Capstone project in which I worked together in a team of 5 to develop an application for Stanford CME.",
             "date": "October 2023 - April 2024",
             "link": "https://github.com/hergin/PersonalizedLearningPlanWebApp",
             "skills": [
@@ -66,7 +66,7 @@
         },
         {
             "name": "Stack Demo",
-            "description": "This project is a web application designed to simulate the Stack data structure with a user interface developed with Bootstrap.",
+            "description": "This project is a web application that simulates the Stack data structure, featuring a user interface developed with Bootstrap.",
             "date": "February 2024",
             "link": "https://github.com/tsnicholas/StackDemo",
             "skills": [
@@ -78,8 +78,21 @@
             ]
         },
         {
+            "name": "Recipe Search",
+            "description": "This website is a simple search engine that uses themealdb's API to search for recipes.",
+            "date": "November 2023",
+            "link": "https://github.com/tsnicholas/RecipeSearch",
+            "skills": [
+                "Web Development",
+                "JavaScript",
+                "HTML",
+                "CSS",
+                "jQuery"
+            ]
+        },
+        {
             "name": "Timer App",
-            "description": "This is a simple timer app I made for Mobile App Development. It allows you to create and edit timers as well as customizing your own timer sets. I developed this project with React Native and it requires you to run it with a phone emulator. I would recommend using Expo to run this application.",
+            "description": "This is a timer application developed for Mobile App Development. It allows users to create, edit, and customize timer sets.",
             "date": "October 2023",
             "link": "https://github.com/tsnicholas/TimerApp",
             "skills": [
@@ -87,6 +100,49 @@
                 "Typescript",
                 "React Native",
                 "React"
+            ]
+        },
+        {
+            "name": "Online Store Database",
+            "description": "This Python program scans products from a JSON file to emulate an online store. It allows users to add products to their cart, remove them, and view their order summary.",
+            "date": "April 2023",
+            "link": "https://github.com/tsnicholas/Online-Store-Database",
+            "skills": [
+                "Database Design",
+                "Unit Testing",
+                "Python",
+                "MongoDB"
+            ]
+        },
+        {
+            "name": "Falcon Airlines",
+            "description": "This program is a simulated airline database created for practicing database programming in Python. The data displayed by the program is randomly generated, and new data is inserted into the database each time the program is executed.",
+            "date": "March 2023 - April 2023",
+            "link": "https://github.com/tsnicholas/Falcon-Airlines-Database",
+            "skills": [
+                "Database Design",
+                "Python",
+                "MySQL"
+            ]
+        },
+        {
+            "name": "TCP Text File Manager",
+            "description": "This file manager can upload, download, delete, rename, and list .txt files between the server and the client directories using TCP packets.",
+            "date": "March 2023",
+            "link": "https://github.com/tsnicholas/TCP-Text-File-Manager",
+            "skills": [
+                "Computer Networking",
+                "Java",
+                "Gradle"
+            ]
+        },
+        {
+            "name": "Simple C Compiler",
+            "description": "This program, written in C, ensures the compilation of given files by verifying that each opening bracket ( [ { has a corresponding closing bracket ) ] }.",
+            "date": "February 2023",
+            "link": "https://github.com/tsnicholas/SimpleCompiler",
+            "skills": [
+                "C"
             ]
         },
         {
