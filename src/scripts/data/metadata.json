@@ -105,9 +105,28 @@
     ],
     "experience": [
         {
-            "company": "StaffMax USA",
+            "company": {
+                "name": "Stanford CME",
+                "phone": "",
+                "location": ""
+            },
+            "position": "Student Web Developer",
+            "date": "October 2023 - May 2024",
+            "description": "For my capstone project, I collaborated with a team of five to design and develop a new website from the ground up, tailored to meet the specific requirements of a real-world client.",
+            "accomplishments": [
+                "Partnered with Stanford CME to comprehend project requirements, ensuring alignment with specifications and goals; Administered efficient attainment of project milestones in a team of 5 developers.",
+                "Completed a RESTful API system with TypeScript, optimizing data flow between client-side interface and database; decreasing load time by 40% and improved overall user experience.",
+                "Designed, implemented, and refined an intuitive user interface using React, augmenting user experience and enabling effortless navigation and utilization for 100% of the website’s features."
+            ]
+        },
+        {
+            "company": {
+                "name": "StaffMax USA",
+                "phone": "<a href=\"tel:+13174551930\">+1 (317) 455-1930</a>",
+                "location": "<a href=\"https://maps.app.goo.gl/h9ptvHQ4TSzrZ9XJ8\">Indianapolis, IN</a>"
+            },
             "position": "Warehouse Associate (Temp)",
-            "date": "Summer 2023",
+            "date": "May 2023 - August 2023",
             "description": "During the summer of 2023, I worked as a temp for a NTN bearings warehouse in Indianapolis. The assignment's duty was to verify and pack various heavy car parts for them to be shipped.",
             "accomplishments": [
                 "Cooperated with a unit to get packages ready to be shipped ahead of time.",
@@ -115,9 +134,13 @@
             ]
         },
         {
-            "company": "StaffMax USA",
+            "company": {
+                "name": "StaffMax USA",
+                "phone": "<a href=\"tel:+13174551930\">+1 (317) 455-1930</a>",
+                "location": "<a href=\"https://maps.app.goo.gl/h9ptvHQ4TSzrZ9XJ8\">Indianapolis, IN</a>"
+            },
             "position": "Warehouse Associate (Temp)",
-            "date": "Summer 2022",
+            "date": "May 2022 - August 2022",
             "description": "As a temp for StaffMax USA now, I worked in a Pepboys warehouse which had a problem with lack of employees. The position's task was to sort and store various car parts as according to the database throughout the warehouse.",
             "accomplishments": [
                 "Collaborated in a team with determination and leadership to make workflow more efficient.",
@@ -125,9 +148,13 @@
             ]
         },
         {
-            "company": "Elwood Staffing Services, Inc.",
+            "company": {
+                "name": "Elwood Staffing Services, Inc.",
+                "phone": "<a href=\"tel:+13178569600\">+1 (317) 856-9600</a>",
+                "location": "<a href=\"https://maps.app.goo.gl/c4HambqFnXvR6FJq8\">Camby, IN</a>"
+            },
             "position": "Warehouse Associate (Temp)",
-            "date": "Summer 2021",
+            "date": "May 2021 - August 2021",
             "description": "During the summer of 2021, I worked at a Loves warehouse as a temp for Elwood Staffing. The profession was to work as a team to retread big truck tires in a team by using various machinery.",
             "accomplishments": [
                 "Partnered with others in a well-organized team environment to operate machines",
@@ -135,9 +162,27 @@
             ]
         },
         {
-            "company": "Elwood Staffing Services, Inc.",
+            "company": {
+                "name": "University of Evansville",
+                "phone": "<a href=\"tel:+18124882956\">+1 (812) 488-2956</a>",
+                "location": "<a href=\"https://maps.app.goo.gl/cXv8QBBY5U2b3LJ86\">Evansville, IN</a>"
+            },
+            "position": "Mail Clerk",
+            "date": "August 2020 - May 2021",
+            "description": "As a mail clerk, I was responsible for delivering packages to professors across campus and managing the front desk operations, where I distributed packages to students.",
+            "accomplishments": [
+                "Facilitated the delivery of packages to professors throughout the campus efficiently and reliably.",
+                "Distributed packages accurately to students at the front counter."
+            ]
+        },
+        {
+            "company": {
+                "name": "Elwood Staffing Services, Inc.",
+                "phone": "<a href=\"tel:+13178569600\">+1 (317) 856-9600</a>",
+                "location": "<a href=\"https://maps.app.goo.gl/c4HambqFnXvR6FJq8\">Camby, IN</a>"
+            },
             "position": "Warehouse Associate (Temp)",
-            "date": "Summer 2020",
+            "date": "June 2020 - August 2020",
             "description": "My first job was working as a temp for Elwood Staffing at a warehouse in Mooresville known as Ingram Micro. The job was to fulfill orders by picking and packing phone products to get them ready for shipping.",
             "accomplishments": [
                 "Adapted to an unfamiliar environment with ease to ensure a strong work ethic.",

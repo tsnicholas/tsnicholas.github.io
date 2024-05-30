@@ -63,16 +63,16 @@ const renderStrategies = {
         data.forEach(experience => {
             const newContainer = createElementWithStyle("div", DATA_CONTAINER_CLASSES);
             container.appendChild(newContainer);
-            const bodyWrapper = createElementWithStyle("div", "col-md-10");
+            const bodyWrapper = createElementWithStyle("div", "col-md-10 experience-body");
             injectWithChildren(newContainer, [
                 createElementWithStyleAndText("p", "col-md-3 p-1", experience.date),
                 bodyWrapper
             ]);
             injectWithChildren(bodyWrapper, [
-                createHeadingWithSubtitle(experience.company, experience.position),
+                createHeadingWithSubtitle(experience.position, experience.company),
                 createDescription(experience)
             ]);
-        })
+        });
     }
 }
 
@@ -143,14 +143,31 @@ function parseSkills(skills) {
 
 /**
  * Creates a heading with a subtitle under it.
- * @param {string} company
  * @param {string} position
+ * @param {object} company
  * @returns {HTMLElement}
  */
-function createHeadingWithSubtitle(company, position) {
+function createHeadingWithSubtitle(position, company) {
     const container = document.createElement("div");
-    container.appendChild(createElementWithStyleAndText("h3", "fs-4 fw-normal", company));
-    container.appendChild(createElementWithStyleAndText("p", "fs-5 fst-italic", position));
+    container.appendChild(createElementWithStyleAndText("h3", "fs-4 fw-normal", position));
+    container.appendChild(createCompanyDisplay(company));
+    return container;
+}
+
+/**
+ * Creates the display for a company.
+ * @param {object} company
+ * @returns {HTMLElement}
+ */
+function createCompanyDisplay(company) {
+    const container = createElementWithStyle("div", "company-container");
+    container.appendChild(document.createTextNode(company.name));
+    const phoneLink = document.createElement("div");
+    phoneLink.innerHTML = company.phone;
+    const locationLink = document.createElement("div");
+    locationLink.innerHTML = company.location;
+    container.appendChild(phoneLink);
+    container.appendChild(locationLink);
     return container;
 }
 
@@ -189,9 +206,7 @@ function createUnorderedList(data) {
  * @param {string} type
  */
 function render(data, type) {
-    console.log(JSON.stringify(data));
     let container = document.getElementById(`${type}-container`);
-    console.log(container);
     if (renderStrategies[type]) {
         renderStrategies[type](data, container);
     } else {
@@ -201,7 +216,7 @@ function render(data, type) {
 
 function main() {
     let nameHeader = document.getElementById("full-name");
-    nameHeader.innerText = metadata.name;
+    nameHeader.innerHTML = metadata.name;
 
     let subtitle = document.getElementById("subtitle");
     subtitle.innerText = metadata.title;
