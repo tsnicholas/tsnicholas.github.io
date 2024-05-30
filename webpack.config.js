@@ -1,6 +1,19 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
+class UpdateDatePlugin {
+    apply(compiler) {
+        compiler.hooks.compilation.tap('UpdateDatePlugin', (compilation) => {
+            HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync('UpdateDatePlugin', (data, cb) => {
+                const date = new Date();
+                const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+                data.html = data.html.replace(/<time class="small">Last update: .*?<\/time>/, `<time class="small">Last update: ${formattedDate}</time>`);
+                cb(null, data);
+            });
+        });
+    }
+}
+
 module.exports = {
     mode: "development",
     entry: "./src/scripts/index.js",
@@ -45,8 +58,9 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "src/index.html",
+            template: "./src/index.html",
             filename: "index.html"
-        })
+        }),
+        new UpdateDatePlugin(),
     ]
 }

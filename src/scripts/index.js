@@ -1,6 +1,6 @@
 import metadata from "./data/metadata.json";
 import "../styles.css"
-import "../assets/Professional Mugshot.jpg"
+import professionalPicture from "../assets/Professional Mugshot.jpg"
 
 const DATA_CONTAINER_CLASSES = "d-flex justify-content-between align-items-start";
 
@@ -205,6 +205,13 @@ function main() {
 
     let subtitle = document.getElementById("subtitle");
     subtitle.innerText = metadata.title;
+
+    let imageContainer = document.getElementById("mugshot-container");
+    const image = document.createElement("img");
+    imageContainer.appendChild(image);
+    image.src = professionalPicture;
+    image.alt = "Professional Mugshot";
+    image.classList = "rounded-circle img-fluid";
 
     render(metadata.facts, "fact");
     render(metadata.education, "education");
