@@ -18,20 +18,20 @@
             <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
                 <div class="row">
                     <div class="col-print-6 col-12 col-md-4 d-flex justify-content-between flex-column">
-                        <div>
-                            <h1 id="full-name" class="mb-0"></h1>
-                            <div id="subtitle" class="fs-3"></div>
+                        <div class="vstack">
+                            <div>
+                                <h1 id="full-name" class="mb-0"></h1>
+                                <div id="subtitle" class="fs-3"></div>
+                            </div>
                             <div>
                                 <p>
-                                    <time class="small">Last update: 4/29/2024</time>
+                                    <time class="small">Last update: 5/30/2024</time>
                                 </p>
                                 <span class="screen"><a href="" id="pdf-link"><i class="far fa-file-pdf"></i> Download PDF version</a></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 col-md-3 col-lg-2 offset-lg-1 d-none d-md-block align-md-self-center text-center">
-                        <img src="assets/Professional Mugshot.jpg" class="rounded-circle img-fluid" alt="Personal photo">
-                    </div>
+                    <div id="mugshot-container" class="col-4 col-md-3 col-lg-2 offset-lg-1 d-none d-md-block align-md-self-center text-center"></div>
                     <div class="col-print-6 col-12 col-md-5 offset-lg-1 col-lg-4">
                         <div id="fact-container" class="vstack"></div>
                     </div>
@@ -58,6 +58,5 @@
                 <div id="experience-container" class="vstack"></div>
             </div>
         </div>
-        <script src="bundle.js" type="text/javascript"></script>
     </body>
 </html>
