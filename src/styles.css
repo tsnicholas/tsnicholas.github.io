@@ -87,4 +87,7 @@ h1, h2, h3, h4 {
     padding-bottom: 25px;
 }
 
-
+.collapse-button-icon {
+    transition: transform 0.3s ease;
+    transform: 0deg;
+}
