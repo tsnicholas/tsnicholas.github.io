@@ -7,7 +7,7 @@ class UpdateDatePlugin {
             HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync('UpdateDatePlugin', (data, cb) => {
                 const date = new Date();
                 const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-                data.html = data.html.replace(/<time class="small">Last update: .*?<\/time>/, `<time class="small">Last update: ${formattedDate}</time>`);
+                data.html = data.html.replace(/<time class="small">Last updated: .*?<\/time>/, `<time class="small">Last updated: ${formattedDate}</time>`);
                 cb(null, data);
             });
         });
@@ -43,7 +43,15 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
-                use: 'file-loader'
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/'
+                        }
+                    }
+                ],
             }
         ]
     },

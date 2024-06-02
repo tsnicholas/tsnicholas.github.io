@@ -11,18 +11,18 @@ function createBootStrapIcon(classList) {
     return iconElement;
 }
 
-function buildPhoneLink(number) {
-    const sanitizedNumber = number.replace(/[\(\)\s-]/g, "");
+function buildPhoneLink(data) {
+    const sanitizedNumber = data.replace(/[\(\)\s-]/g, "");
     const phoneLink = initializeLinkElement(`tel:${sanitizedNumber}`);
     phoneLink.appendChild(createBootStrapIcon("bi bi-telephone-fill fact-icon"));
-    phoneLink.appendChild(document.createTextNode(number));
+    phoneLink.appendChild(document.createTextNode(data));
     return phoneLink;
 }
 
-function buildLocationLink(location) {
-    const locationLink = initializeLinkElement(location.link);
+function buildLocationLink(data) {
+    const locationLink = initializeLinkElement(data.link);
     locationLink.appendChild(createBootStrapIcon("bi bi-geo-alt-fill fact-icon"));
-    locationLink.appendChild(document.createTextNode(location.name));
+    locationLink.appendChild(document.createTextNode(data.name));
     return locationLink;
 }
 

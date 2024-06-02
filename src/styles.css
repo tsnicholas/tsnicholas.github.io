@@ -8,6 +8,8 @@
     --bs-body-font-size: 1.2rem;
     --light-color: #D9D9D9;
     --border-color: #383D3F;
+    --timeline-point-size: 20px;
+    --timeline-color: #8870c3;
 }
 
 a {
@@ -72,7 +74,7 @@ h1, h2, h3, h4 {
     letter-spacing: 0.05rem;
     border: 1px solid var(--border-color);
     color: var(--light-color);
-    background-color: #158e2b;
+    background-color: rgb(165, 45, 1);
 }
 
 .fact-icon {
@@ -91,4 +93,25 @@ h1, h2, h3, h4 {
     color: var(--light-color);
     transition: transform 0.3s ease;
     transform: 0deg;
+}
+
+.timeline-point {
+    height: var(--timeline-point-size);
+    width: var(--timeline-point-size);
+    background-color: var(--timeline-color);
+    border-radius: 50%;
+    border: var(--light-color) 2px solid;
+}
+
+.timeline-axis-above, .timeline-axis-below {
+    width: 5px;
+    background-color: var(--timeline-color);
+}
+
+.timeline-axis-above {
+    height: 0.5rem;
+}
+
+.timeline-axis-below {
+    height: 100%;
 }

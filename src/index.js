@@ -26,20 +26,26 @@ function main() {
     const subtitle = document.getElementById("subtitle");
     const imageContainer = document.getElementById("mugshot-container");
 
-    if (nameHeader) nameHeader.innerHTML = metadata.name;
-    if (subtitle) subtitle.innerHTML = metadata.title;
+    nameHeader ? nameHeader.innerHTML = metadata.name : printNotFoundWarning("full-name");
+    subtitle ? subtitle.innerHTML = metadata.title : printNotFoundWarning("subtitle");
     if (imageContainer) {
         const image = document.createElement("img");
         imageContainer.appendChild(image);
         image.src = professionalPicture;
         image.alt = "Professional Mugshot";
         image.className = "rounded-circle img-fluid";
+    } else {
+        printNotFoundWarning("mugshot-container");
     }
 
     render(metadata.facts, "fact");
     render(metadata.education, "education");
     render(metadata.projects, "project");
     render(metadata.experience, "experience");
+}
+
+function printNotFoundWarning(element) {
+    console.warn(`HTML element with id ${element} was not found.`);
 }
 
 function render(data, type) {

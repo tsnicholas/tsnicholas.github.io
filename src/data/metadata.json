@@ -1,6 +1,6 @@
 {
     "name": "Tim Nicholas",
-    "title": "Aspiring Software Developer",
+    "title": "Software Developer/Recent Graduate",
     "bio": "Aspiring professional software developer with a deep passion for programming and computers. Eager to utilize my problem-solving skills to contribute to innovative software. I'm an introverted but dependable person who is excited to expand on my strengths and knowledge to tackle new challenges. If you're interested, please feel free to contact me if you wish to learn more about me.",
     "facts": [
         {
@@ -31,9 +31,16 @@
     ],
     "education": [
         {
-            "school": "Ball State University",
-            "location": "Muncie, IN",
-            "timeline": "2021 - 2024",
+            "school": {
+                "name": "Ball State University",
+                "location": {
+                    "name": "Muncie, IN",
+                    "link": "https://maps.app.goo.gl/DAppBKPAZwFBSn5g6"
+                },
+                "phone": "+1 (765) 289-1241",
+                "logo": "ball_state_logo.png"
+            },
+            "timeInterval": "2021 - 2024",
             "degree": "Bachelor of Science in Computer Science"
         }
     ],

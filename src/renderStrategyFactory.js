@@ -1,6 +1,7 @@
 import LinkBuilderFactory from "./linkBuilderFactory";
 
 const DATA_CONTAINER_CLASSES = "d-flex justify-content-between align-items-start";
+const TIMELINE_CONTAINER_CLASSES = "col-md-1 d-flex flex-column align-items-center"
 const linkBuilderFactory = new LinkBuilderFactory();
 
 /**
@@ -131,6 +132,26 @@ function createUnorderedList(data) {
 }
 
 /**
+ * Resizes container to be the same size as body, then injects a point on the timeline.
+ * @param {HTMLDivElement} container
+ * @param {HTMLDivElement} body
+ * @param {boolean} isFirst
+ * @param {boolean} isLast
+ */
+function injectTimelinePoint(container, body, isFirst, isLast) {
+    const updateHeight = () => { container.style.height = `${body.offsetHeight}px` };
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    if (!isFirst) {
+        container.appendChild(createStyledElement("div", "timeline-axis-above"));
+    }
+    container.appendChild(createStyledElement("div", "timeline-point"));
+    if (!isLast) {
+        container.appendChild(createStyledElement("div", "timeline-axis-below"));
+    }
+}
+
+/**
  * Strategy for rendering facts.
  * @param {object[]} data,
  * @param {HTMLDivElement} container
@@ -152,11 +173,44 @@ function parseFactData(data, container) {
  * @param {HTMLDivElement} container
  */
 function parseEducationData(data, container) {
+    const buildLogo = (logoName) => {
+        const logo = require(`./assets/${logoName}`);
+        if (!logo) {
+            console.warn(`Image ${logoName} was not found in assets.`);
+            return undefined;
+        }
+        const image = createStyledElement("img", "img-fluid rounded-start");
+        image.src = logo;
+        image.alt = "School Logo";
+        return image;
+    }
+
+    const buildBody = (educationData) => {
+        const schoolData = educationData.school;
+        const bodyContainer = createStyledElement("div", "card-body");
+        const header = createStyledElement("h5", "card-title");
+        header.textContent = educationData.degree;
+        const schoolText = createStyledElement("p", "card-text");
+        schoolText.textContent = `${schoolData.name} [${schoolData.timeInterval}]`;
+        const linkContainer = createStyledElement("div", "card-text hstack gap-3");
+        const locationLink = linkBuilderFactory.getBuilder("location")(schoolData.location);
+        const phoneLink = linkBuilderFactory.getBuilder("phone")(schoolData.phone);
+        injectChildren(linkContainer, [locationLink, phoneLink]);
+        bodyContainer.appendChild(header);
+        bodyContainer.appendChild(schoolText);
+        bodyContainer.appendChild(linkContainer);
+        return bodyContainer;
+    }
+
     data.forEach(education => {
-        const subContainer = document.createElement("div");
-        subContainer.appendChild(createUnstyledText(`${education.school} in ${education.location} [${education.timeline}]`));
-        subContainer.appendChild(createUnstyledText(education.degree));
-        container.appendChild(subContainer);
+        const cardContainer = createStyledElement("div", "card");
+        const contentContainer = createStyledElement("div", "row");
+        const imageContainer = createStyledElement("div", "col-md-4");
+        imageContainer.appendChild(buildLogo(education.school.logo));
+        contentContainer.appendChild(imageContainer);
+        contentContainer.appendChild(buildBody(education));
+        cardContainer.appendChild(contentContainer);
+        container.appendChild(cardContainer);
     });
 }
 
@@ -167,11 +221,13 @@ function parseEducationData(data, container) {
  */
 function parseProjectData(data, container) {
     data.forEach(project => {
-        const nestedContainer = createStyledElement("div", `${DATA_CONTAINER_CLASSES} pb-2`);
-        const dateContainer = createStyledElement("div", "col-md-3 p-1");
+        const nestedContainer = createStyledElement("div", `${DATA_CONTAINER_CLASSES}`);
+        const dateContainer = createStyledElement("div", "col-md-3");
+        const timelineContainer = createStyledElement("div", `${TIMELINE_CONTAINER_CLASSES}`);
         dateContainer.innerText = project.date;
         nestedContainer.appendChild(dateContainer);
-        const mainContainer = createStyledElement("div", "col-md-10");
+        nestedContainer.appendChild(timelineContainer);
+        const mainContainer = createStyledElement("div", "col-md-9 pb-2");
         const headingContainer = createStyledElement("div", "pb-2");
         injectChildren(headingContainer, [
             createHeadingWithLink(project.name, project.link),
@@ -182,6 +238,7 @@ function parseProjectData(data, container) {
         injectChildren(mainContainer, [headingContainer, descriptionContainer]);
         nestedContainer.appendChild(mainContainer);
         container.appendChild(nestedContainer);
+        injectTimelinePoint(timelineContainer, mainContainer, container.children.length === 1, container.children.length === data.length);
     });
 }
 
@@ -194,15 +251,16 @@ function parseExperienceData(data, container) {
     data.forEach(experience => {
         const nestedContainer = createStyledElement("div", DATA_CONTAINER_CLASSES);
         container.appendChild(nestedContainer);
-        const dateContainer = createStyledElement("p", "col-md-3 p-1");
+        const dateContainer = createStyledElement("p", "col-md-3");
         dateContainer.innerText = experience.date;
-        const circleContainer = createStyledElement("span", "col-md-2 timeline-point");
-        const bodyWrapper = createStyledElement("div", "col-md-8 pb-3");
-        injectChildren(nestedContainer, [dateContainer, circleContainer, bodyWrapper]);
+        const timelineContainer = createStyledElement("div", TIMELINE_CONTAINER_CLASSES);
+        const bodyWrapper = createStyledElement("div", "col-md-9 pb-3");
+        injectChildren(nestedContainer, [dateContainer, timelineContainer, bodyWrapper]);
         injectChildren(bodyWrapper, [
             createHeadingWithSubtitle(experience.position, experience.company),
             createAdvancedDescription(experience.description, experience.accomplishments)
         ]);
+        injectTimelinePoint(timelineContainer, bodyWrapper, container.children.length === 1, container.children.length === data.length);
     });
 }
 
