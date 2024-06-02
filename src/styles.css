@@ -69,6 +69,10 @@ h1, h2, h3, h4 {
     }
 }
 
+.card {
+    border-color: var(--border-color);
+}
+
 .badge {
     font-weight: normal;
     letter-spacing: 0.05rem;

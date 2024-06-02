@@ -174,41 +174,40 @@ function parseFactData(data, container) {
  */
 function parseEducationData(data, container) {
     const buildLogo = (logoName) => {
-        const logo = require(`./assets/${logoName}`);
-        if (!logo) {
-            console.warn(`Image ${logoName} was not found in assets.`);
-            return undefined;
-        }
+        require(`./assets/${logoName}`); // includes it in public build via webpack.
         const image = createStyledElement("img", "img-fluid rounded-start");
-        image.src = logo;
+        image.src = `./assets/${logoName}`;
         image.alt = "School Logo";
         return image;
     }
 
     const buildBody = (educationData) => {
         const schoolData = educationData.school;
-        const bodyContainer = createStyledElement("div", "card-body");
-        const header = createStyledElement("h5", "card-title");
+        const contentContainer = createStyledElement("div", "card-body");
+        const header = createStyledElement("h5", "card-title fs-2");
         header.textContent = educationData.degree;
-        const schoolText = createStyledElement("p", "card-text");
-        schoolText.textContent = `${schoolData.name} [${schoolData.timeInterval}]`;
-        const linkContainer = createStyledElement("div", "card-text hstack gap-3");
-        const locationLink = linkBuilderFactory.getBuilder("location")(schoolData.location);
-        const phoneLink = linkBuilderFactory.getBuilder("phone")(schoolData.phone);
-        injectChildren(linkContainer, [locationLink, phoneLink]);
-        bodyContainer.appendChild(header);
-        bodyContainer.appendChild(schoolText);
-        bodyContainer.appendChild(linkContainer);
+        const schoolText = createStyledElement("p", "card-text fs-3");
+        schoolText.textContent = `${schoolData.name} [${educationData.timeInterval}]`;
+        const linkContainer = createStyledElement("div", "card-text hstack gap-5 fs-4");
+        injectChildren(linkContainer, [
+            linkBuilderFactory.getBuilder("location")(schoolData.location),
+            linkBuilderFactory.getBuilder("phone")(schoolData.phone)
+        ]);
+        injectChildren(contentContainer, [header, schoolText, linkContainer]);
+        const bodyContainer = createStyledElement("div", "col-md-8");
+        bodyContainer.appendChild(contentContainer);
         return bodyContainer;
     }
 
     data.forEach(education => {
-        const cardContainer = createStyledElement("div", "card");
+        const cardContainer = createStyledElement("div", "card pr-2");
         const contentContainer = createStyledElement("div", "row");
-        const imageContainer = createStyledElement("div", "col-md-4");
+        const imageContainer = createStyledElement("div", "col-md-2");
         imageContainer.appendChild(buildLogo(education.school.logo));
-        contentContainer.appendChild(imageContainer);
-        contentContainer.appendChild(buildBody(education));
+        injectChildren(contentContainer, [
+            imageContainer,
+            buildBody(education)
+        ]);
         cardContainer.appendChild(contentContainer);
         container.appendChild(cardContainer);
     });
@@ -223,10 +222,8 @@ function parseProjectData(data, container) {
     data.forEach(project => {
         const nestedContainer = createStyledElement("div", `${DATA_CONTAINER_CLASSES}`);
         const dateContainer = createStyledElement("div", "col-md-3");
-        const timelineContainer = createStyledElement("div", `${TIMELINE_CONTAINER_CLASSES}`);
         dateContainer.innerText = project.date;
-        nestedContainer.appendChild(dateContainer);
-        nestedContainer.appendChild(timelineContainer);
+        const timelineContainer = createStyledElement("div", `${TIMELINE_CONTAINER_CLASSES}`);
         const mainContainer = createStyledElement("div", "col-md-9 pb-2");
         const headingContainer = createStyledElement("div", "pb-2");
         injectChildren(headingContainer, [
@@ -236,7 +233,7 @@ function parseProjectData(data, container) {
         const descriptionContainer = createStyledElement("p", "p-1");
         descriptionContainer.innerText = project.description;
         injectChildren(mainContainer, [headingContainer, descriptionContainer]);
-        nestedContainer.appendChild(mainContainer);
+        injectChildren(nestedContainer, [dateContainer, timelineContainer, mainContainer]);
         container.appendChild(nestedContainer);
         injectTimelinePoint(timelineContainer, mainContainer, container.children.length === 1, container.children.length === data.length);
     });
