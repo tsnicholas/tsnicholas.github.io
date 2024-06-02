@@ -1,7 +1,7 @@
 import metadata from "./data/metadata.json";
 import "./styles.css";
 import professionalPicture from "./assets/Professional Mugshot.jpg";
-import render from "./RenderStrategyFactory";
+import RenderStrategyFactory from "./renderStrategyFactory";
 
 document.addEventListener("DOMContentLoaded", () => {
     const collapseButtons = document.querySelectorAll(".collapse-button");
@@ -22,25 +22,33 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function main() {
-    let nameHeader = document.getElementById("full-name");
-    nameHeader.innerHTML = metadata.name;
+    const nameHeader = document.getElementById("full-name");
+    const subtitle = document.getElementById("subtitle");
+    const imageContainer = document.getElementById("mugshot-container");
 
-    let subtitle = document.getElementById("subtitle");
-    subtitle.innerText = metadata.title;
+    if (nameHeader) nameHeader.innerHTML = metadata.name;
+    if (subtitle) subtitle.innerHTML = metadata.title;
+    if (imageContainer) {
+        const image = document.createElement("img");
+        imageContainer.appendChild(image);
+        image.src = professionalPicture;
+        image.alt = "Professional Mugshot";
+        image.className = "rounded-circle img-fluid";
+    }
 
-    let imageContainer = document.getElementById("mugshot-container");
-    const image = document.createElement("img");
-    imageContainer.appendChild(image);
-    image.src = professionalPicture;
-    image.alt = "Professional Mugshot";
-    image.className = "rounded-circle img-fluid";
+    render(metadata.facts, "fact");
+    render(metadata.education, "education");
+    render(metadata.projects, "project");
+    render(metadata.experience, "experience");
+}
 
+function render(data, type) {
     try {
-        render(metadata.facts, "fact");
-        render(metadata.education, "education");
-        render(metadata.projects, "project");
-        render(metadata.experience, "experience");
+        const factory = new RenderStrategyFactory();
+        let renderStrategy = factory.getRenderStrategy(type);
+        const container = document.getElementById(`${type}-container`);
+        if(container) renderStrategy(data, container);
     } catch (error) {
-        console.error(error.message);
+        console.error(error);
     }
 }

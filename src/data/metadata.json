@@ -6,7 +6,7 @@
         {
             "name": "Residence",
             "link": "<a href=\"https://maps.app.goo.gl/ioNHGSxwFzVvdnty6\">Camby, IN</a>",
-            "icon": "<i class=\"bi bi-house-fill fact-icon\"></i>"
+            "icon": "<i class=\"bi bi-geo-alt-fill\"></i>"
         },
         {
             "name": "LinkedIn",
@@ -164,7 +164,10 @@
             "company": {
                 "name": "Stanford CME",
                 "phone": "",
-                "location": ""
+                "location": {
+                    "name": "",
+                    "link": ""
+                }
             },
             "position": "Student Web Developer",
             "date": "October 2023 - May 2024",
@@ -178,8 +181,11 @@
         {
             "company": {
                 "name": "StaffMax USA",
-                "phone": "<a href=\"tel:+13174551930\">+1 (317) 455-1930</a>",
-                "location": "<a href=\"https://maps.app.goo.gl/h9ptvHQ4TSzrZ9XJ8\">Indianapolis, IN</a>"
+                "phone": "+1 (317) 455-1930",
+                "location": {
+                    "name": "Indianapolis, IN",
+                    "link": "https://maps.app.goo.gl/h9ptvHQ4TSzrZ9XJ8"
+                }
             },
             "position": "Warehouse Associate (Temp)",
             "date": "May 2023 - August 2023",
@@ -192,8 +198,11 @@
         {
             "company": {
                 "name": "StaffMax USA",
-                "phone": "<a href=\"tel:+13174551930\">+1 (317) 455-1930</a>",
-                "location": "<a href=\"https://maps.app.goo.gl/h9ptvHQ4TSzrZ9XJ8\">Indianapolis, IN</a>"
+                "phone": "+1 (317) 455-1930",
+                "location": {
+                    "name": "Indianapolis, IN",
+                    "link": "https://maps.app.goo.gl/h9ptvHQ4TSzrZ9XJ8"
+                }
             },
             "position": "Warehouse Associate (Temp)",
             "date": "May 2022 - August 2022",
@@ -206,8 +215,11 @@
         {
             "company": {
                 "name": "Elwood Staffing Services, Inc.",
-                "phone": "<a href=\"tel:+13178569600\">+1 (317) 856-9600</a>",
-                "location": "<a href=\"https://maps.app.goo.gl/c4HambqFnXvR6FJq8\">Camby, IN</a>"
+                "phone": "+1 (317) 856-9600",
+                "location": {
+                    "name": "Camby, IN",
+                    "link": "https://maps.app.goo.gl/c4HambqFnXvR6FJq8"
+                }
             },
             "position": "Warehouse Associate (Temp)",
             "date": "May 2021 - August 2021",
@@ -220,8 +232,11 @@
         {
             "company": {
                 "name": "University of Evansville",
-                "phone": "<a href=\"tel:+18124882956\">+1 (812) 488-2956</a>",
-                "location": "<a href=\"https://maps.app.goo.gl/cXv8QBBY5U2b3LJ86\">Evansville, IN</a>"
+                "phone": "+1 (812) 488-2956",
+                "location": {
+                    "name": "Evansville, IN",
+                    "link": "https://maps.app.goo.gl/cXv8QBBY5U2b3LJ86"
+                }
             },
             "position": "Mail Clerk",
             "date": "August 2020 - May 2021",
@@ -234,8 +249,11 @@
         {
             "company": {
                 "name": "Elwood Staffing Services, Inc.",
-                "phone": "<a href=\"tel:+13178569600\">+1 (317) 856-9600</a>",
-                "location": "<a href=\"https://maps.app.goo.gl/c4HambqFnXvR6FJq8\">Camby, IN</a>"
+                "phone": "+1 (317) 856-9600",
+                "location": {
+                    "name": "Camby, IN",
+                    "link": "https://maps.app.goo.gl/c4HambqFnXvR6FJq8"
+                }
             },
             "position": "Warehouse Associate (Temp)",
             "date": "June 2020 - August 2020",
