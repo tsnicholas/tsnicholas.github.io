@@ -96,7 +96,8 @@ function createHeadingWithSubtitle(position, company) {
 function createCompanyDisplay(company) {
     const container = createStyledElement("div", "company-container");
     container.appendChild(document.createTextNode(company.name));
-    container.appendChild(linkBuilderFactory.getBuilder("phone")(company.phone));
+    let fact = company.phone ? "phone" : "email";
+    container.appendChild(linkBuilderFactory.getBuilder(fact)(company.phone ?? company.email));
     container.appendChild(linkBuilderFactory.getBuilder("location")(company.location));
     return container;
 }
@@ -221,10 +222,10 @@ function parseEducationData(data, container) {
 function parseProjectData(data, container) {
     data.forEach(project => {
         const nestedContainer = createStyledElement("div", `${DATA_CONTAINER_CLASSES}`);
-        const dateContainer = createStyledElement("div", "col-md-3");
+        const dateContainer = createStyledElement("div", "col-md-3 fs-4");
         dateContainer.innerText = project.date;
         const timelineContainer = createStyledElement("div", `${TIMELINE_CONTAINER_CLASSES}`);
-        const mainContainer = createStyledElement("div", "col-md-9 pb-2");
+        const mainContainer = createStyledElement("div", "col-md-10 pb-2");
         const headingContainer = createStyledElement("div", "pb-2");
         injectChildren(headingContainer, [
             createHeadingWithLink(project.name, project.link),
@@ -248,10 +249,10 @@ function parseExperienceData(data, container) {
     data.forEach(experience => {
         const nestedContainer = createStyledElement("div", DATA_CONTAINER_CLASSES);
         container.appendChild(nestedContainer);
-        const dateContainer = createStyledElement("p", "col-md-3");
+        const dateContainer = createStyledElement("p", "col-md-3 fs-4");
         dateContainer.innerText = experience.date;
         const timelineContainer = createStyledElement("div", TIMELINE_CONTAINER_CLASSES);
-        const bodyWrapper = createStyledElement("div", "col-md-9 pb-3");
+        const bodyWrapper = createStyledElement("div", "col-md-10 pb-3");
         injectChildren(nestedContainer, [dateContainer, timelineContainer, bodyWrapper]);
         injectChildren(bodyWrapper, [
             createHeadingWithSubtitle(experience.position, experience.company),

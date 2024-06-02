@@ -170,10 +170,10 @@
         {
             "company": {
                 "name": "Stanford CME",
-                "phone": "",
+                "email": "snyder1@stanford.edu",
                 "location": {
-                    "name": "",
-                    "link": ""
+                    "name": "Palo Alto, CA (Remote)",
+                    "link": "https://maps.app.goo.gl/f7RvaazLztFVi6rMA"
                 }
             },
             "position": "Student Web Developer",

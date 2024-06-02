@@ -34,6 +34,13 @@ function buildPhoneLink(data) {
     return phoneLink;
 }
 
+function buildEmailLink(data) {
+    const emailLink = initializeLinkElement(`mailto:${data}`);
+    emailLink.appendChild(createBootStrapIcon("fa fa-envelope fact-icon"));
+    emailLink.appendChild(document.createTextNode(data));
+    return emailLink;
+}
+
 /**
  * Strategy for building links to locations on Google Maps.
  * @param {object} data
@@ -50,7 +57,8 @@ export default class LinkBuilderFactory {
     constructor() {
         this.builderMap = new Map([
             ["phone", buildPhoneLink],
-            ["location", buildLocationLink]
+            ["location", buildLocationLink],
+            ["email", buildEmailLink],
         ]);
     }
 
