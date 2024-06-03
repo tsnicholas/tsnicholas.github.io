@@ -225,7 +225,7 @@ function parseProjectData(data, container) {
         const dateContainer = createStyledElement("div", "col-md-3 fs-4");
         dateContainer.innerText = project.date;
         const timelineContainer = createStyledElement("div", `${TIMELINE_CONTAINER_CLASSES}`);
-        const mainContainer = createStyledElement("div", "col-md-10 pb-2");
+        const mainContainer = createStyledElement("div", "col-md-9 pb-2");
         const headingContainer = createStyledElement("div", "pb-2");
         injectChildren(headingContainer, [
             createHeadingWithLink(project.name, project.link),
@@ -252,7 +252,7 @@ function parseExperienceData(data, container) {
         const dateContainer = createStyledElement("p", "col-md-3 fs-4");
         dateContainer.innerText = experience.date;
         const timelineContainer = createStyledElement("div", TIMELINE_CONTAINER_CLASSES);
-        const bodyWrapper = createStyledElement("div", "col-md-10 pb-3");
+        const bodyWrapper = createStyledElement("div", "col-md-9 pb-3");
         injectChildren(nestedContainer, [dateContainer, timelineContainer, bodyWrapper]);
         injectChildren(bodyWrapper, [
             createHeadingWithSubtitle(experience.position, experience.company),
